@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace nothinbutdotnetprep.collections
 {
@@ -19,7 +21,8 @@ namespace nothinbutdotnetprep.collections
 
         public void add(Movie movie)
         {
-            throw new NotImplementedException();
+            movies.Add(movie);
+//            throw new NotImplementedException();
         }
 
         public IEnumerable<Movie> sort_all_movies_by_title_descending()
@@ -29,26 +32,31 @@ namespace nothinbutdotnetprep.collections
 
         public IEnumerable<Movie> all_movies_published_by_pixar()
         {
-            throw new NotImplementedException();
+            return (IEnumerable<Movie>) movies.Select(movie => ProductionStudio.Pixar).ToList();
+//            throw new NotImplementedException();
         }
 
         public IEnumerable<Movie> all_movies_published_by_pixar_or_disney()
         {
+//            return (IEnumerable<Movie>)movies.Select(movie =>  { ProductionStudio.Pixar or ProductionStudio.Disney}).ToList();
             throw new NotImplementedException();
         }
 
         public IEnumerable<Movie> sort_all_movies_by_title_ascending()
         {
+            return (IEnumerable<Movie>) movies.OrderBy(movie => movie.title);
             throw new NotImplementedException();
         }
 
         public IEnumerable<Movie> sort_all_movies_by_movie_studio_and_year_published()
         {
-            throw new NotImplementedException();
+            return (IEnumerable<Movie>)movies.OrderBy(movie => movie.production_studio).ThenBy(movie => movie.date_published);               
+//            throw new NotImplementedException();
         }
 
         public IEnumerable<Movie> all_movies_not_published_by_pixar()
         {
+//            return (IEnumerable<Movie>)movies.Select(movie !=> ) OrderBy(movie => movie.production_studio).ThenBy(movie => movie.date_published);               
             throw new NotImplementedException();
         }
 
