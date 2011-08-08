@@ -27,6 +27,7 @@ namespace nothinbutdotnetprep.collections
 
         public IEnumerable<Movie> sort_all_movies_by_title_descending()
         {
+            return (IEnumerable<Movie>)movies.OrderByDescending(movie => movie.title);
             throw new NotImplementedException();
         }
 
